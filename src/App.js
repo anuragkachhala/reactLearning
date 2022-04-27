@@ -6,9 +6,7 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
-  Link,
   Routes
 } from "react-router-dom";
 
@@ -41,7 +39,7 @@ function App() {
 
     setTimeout(() => {
       setAlertMessage(null)
-    })
+    },1500)
 
   }
 
@@ -56,7 +54,7 @@ function App() {
 
           <Routes>
             <Route exact path="/" element={<TextForm heading="Enter the text to anayze" mode={themeMode} showAlert={showAlert} ></TextForm>} />
-            <Route exact path="/about" element={<About />} />
+            <Route exact path="/about" element={<About themeMode = {themeMode}/>} />
           </Routes>
           {/* <Switch>
             <Route exact path="/about">

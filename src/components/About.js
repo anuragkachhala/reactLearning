@@ -1,32 +1,40 @@
-import userEvent from '@testing-library/user-event'
-import React, {useState} from 'react'
+import React  from 'react'
 
-export default function About() {
+export default function About(props) {
     
     
-   const [themeStyle, setThemeStyle] = useState({
-       color : 'white',
-       backgroundColor : 'black'
+//    const [themeStyle, setThemeStyle] = useState({
+//        color : 'white',
+//        backgroundColor : 'black'
 
-    })
+//     })
 
-    const [btnText, setButtonText] = useState("Enable Light Mode")
+    
 
-    const changeTheme = () =>{
-        if(themeStyle.color === 'white'){
-           setThemeStyle({
-            color : 'black',
-            backgroundColor : 'white'
-           })
-        setButtonText("Enable Dark Mode")
-        }else{
-            setThemeStyle({
-                color : 'white',
-                backgroundColor : 'black'
-               })
-               setButtonText("Enable Light Mode")
-        }
-    }
+//     const [btnText, setButtonText] = useState("Enable Light Mode")
+
+//     const changeTheme = () =>{
+//         if(themeStyle.color === 'white'){
+//            setThemeStyle({
+//             color : 'black',
+//             backgroundColor : 'white'
+//            })
+//         setButtonText("Enable Dark Mode")
+//         }else{
+//             setThemeStyle({
+//                 color : 'white',
+//                 backgroundColor : 'black'
+//                })
+//                setButtonText("Enable Light Mode")
+//         }
+//     }
+
+   
+     const themeStyle =  {
+         color: props.themeMode === 'dark' ? 'white' : 'black',
+         backgroundColor : props.themeMode==='dark'? '#2f5b9b' : 'white'
+         
+     }
 
     return (
         <div classNameName="container" style={themeStyle}>
@@ -69,9 +77,7 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <div className="container my-3" >
-                <button type='button' onClick={changeTheme} className='btn btn-primary'>{btnText} </button>
-            </div>
+    
         </div>
     )
 }

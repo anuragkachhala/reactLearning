@@ -34,8 +34,8 @@ export default function
     }
 
     const countWords = (str) => {
-        const arr = str.split(' ');
-         return arr.filter(word => word !== '').length;
+        const arr = str.split(/\s+/);
+         return arr.filter(word => word.length!==0).length;
       }
 
 
@@ -58,13 +58,13 @@ export default function
                         <label htmlFor="myBox" className="form-label">{props.heading}</label>
                         <textarea className="form-control" value={text} onChange={handleOnChange} style={{
                             color: props.mode === 'dark' ? 'white' : 'black',
-                            backgroundColor: props.mode === 'light' ? 'white' : 'gray'
+                            backgroundColor: props.mode === 'light' ? 'white' : '#2f5b9b'
                         }} id="myBox" rows="8"></textarea>
                     </div>
-                    <button className='btn btn-primary mx-2' onClick={handleUperCase}  > Convert to Uppercase</button>
-                    <button className='btn btn-primary mx-2' onClick={handleLowerCase}> Convert to LowerCase</button>
-                    <button className='btn btn-primary mx-2' onClick={clearText}>Clear Text</button>
-                    <button className='btn btn-primary mx-2' onClick={removeExtaSpace}>Remove Extra Spaces</button>
+                    <button disabled = {text.length === 0 } className='btn btn-primary mx-2 my-1' onClick={handleUperCase}  > Convert to Uppercase</button>
+                    <button disabled = {text.length === 0 } className='btn btn-primary mx-2 my-1' onClick={handleLowerCase}> Convert to LowerCase</button>
+                    <button disabled = {text.length === 0 } className='btn btn-primary mx-2 my-1' onClick={clearText}>Clear Text</button>
+                    <button disabled = {text.length === 0 } className='btn btn-primary mx-2 my-1' onClick={removeExtaSpace}>Remove Extra Spaces</button>
                 </div>
 
                 <div className="container">
